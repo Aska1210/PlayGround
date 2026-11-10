@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#071116" />
+  <title>ECLIPSE: O ÚLTIMO HORIZONTE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="world" aria-label="Mundo 3D de Eclipse"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <div class="brand"><div class="brand-symbol">◒</div><div><div class="brand-title">ECLIPSE</div><div class="brand-sub">O ÚLTIMO HORIZONTE</div></div></div>
+      <div class="location"><span class="live-dot"></span><span id="region-name">VALE DAS CINZAS</span><i>•</i><span id="clock">06:42</span></div>
+      <div class="top-actions"><button class="icon-button" id="map-button" title="Mapa">⌖</button><button class="icon-button" id="menu-button" title="Menu">☰</button></div>
+    </header>
+    <section class="left-hud">
+      <div class="player-card"><div class="avatar">✦</div><div class="player-data"><div class="player-name">NARA VENN <span>LV <b id="level">01</b></span></div><div class="xp-track"><i id="xp-fill"></i></div><div class="xp-label"><span id="xp-text">0 / 100 XP</span><span id="rep">VÍNCULO 0</span></div></div></div>
+      <div class="vitals"><div class="vital-row"><span class="vital-icon health-icon">✚</span><div class="vital-track"><i id="health-fill"></i></div><span id="health-text">100</span></div><div class="vital-row"><span class="vital-icon energy-icon">ϟ</span><div class="vital-track energy-track"><i id="energy-fill"></i></div><span id="energy-text">100</span></div><div class="vital-row"><span class="vital-icon food-icon">◉</span><div class="vital-track food-track"><i id="food-fill"></i></div><span id="food-text">84</span></div></div>
+      <div class="quest-card"><div class="eyebrow"><span class="quest-pin">◆</span> RASTREADOR DE SINAIS</div><h2 id="quest-title">O eco sob as ruínas</h2><p id="quest-description">Encontre a origem do pulso na torre caída.</p><div class="quest-progress"><i id="quest-progress"></i></div><div class="quest-foot"><span id="quest-progress-label">0 / 1</span><span>MISSÃO PRINCIPAL</span></div></div>
+      <div class="nearby-hint" id="nearby-hint"><span>F</span> FALAR COM SERA</div>
+    </section>
+    <section class="right-hud">
+      <div class="minimap-frame"><div class="map-label">SETOR 07 <span>◉</span></div><div class="minimap" id="minimap"><div class="map-grid"></div><div class="map-ridge ridge-one"></div><div class="map-ridge ridge-two"></div><div class="map-dot dot-npc">◆</div><div class="map-dot dot-objective">◎</div><div class="map-player">▲</div><div class="map-north">N</div></div><div class="map-coords" id="coords">X 042 · Y 018</div></div>
+      <div class="threat" id="threat"><span class="threat-dot"></span> ECO HOSTIL <b id="threat-count">2</b></div>
+    </section>
+    <div class="crosshair"><i></i><b></b><i></i><b></b><i></i></div>
+    <div class="interaction" id="interaction"><span class="keycap">F</span><span id="interaction-text">INTERAGIR</span></div>
+    <div class="toast" id="toast"></div>
+    <div class="controls-hint"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> MOVER <span>·</span> <kbd>ESPAÇO</kbd> ESQUIVA <span>·</span> <kbd>CLIQUE</kbd> ATACAR</div>
+    <div class="ability-bar">
+      <div class="weapon-chip"><div class="weapon-icon">⌁</div><div><b>FIO DE ÂMBAR</b><small>LÂMINA · COMUM</small></div></div>
+      <button class="ability" id="ability-q"><span class="ability-key">Q</span><span class="ability-glyph">⤳</span><b>FENDA</b><small>12 EN</small><i class="cooldown"></i></button>
+      <button class="ability" id="ability-e"><span class="ability-key">E</span><span class="ability-glyph">✳</span><b>PULSO</b><small>20 EN</small><i class="cooldown"></i></button>
+      <button class="ability locked" id="ability-r"><span class="ability-key">R</span><span class="ability-glyph">⏚</span><b>ÂNCORA</b><small>LV 2</small><i class="cooldown"></i></button>
+      <button class="ability locked" id="ability-c"><span class="ability-key">C</span><span class="ability-glyph">⬡</span><b>ARCO</b><small>LV 3</small><i class="cooldown"></i></button>
+      <button class="quick-item" id="use-item"><span>+</span><b id="medkit-count">2</b><small>KIT VITAL</small><kbd>1</kbd></button>
+    </div>
+    <div class="touch-controls" id="touch-controls"><div class="joystick" id="joystick"><div class="joy-knob" id="joy-knob"></div></div><div class="touch-actions"><button id="touch-dodge">↗</button><button id="touch-attack" class="touch-attack">⚔</button><button id="touch-power">✳</button><button id="touch-interact">F</button></div></div>
+    <div class="screen-flash" id="screen-flash"></div>
+    <div class="modal-backdrop" id="modal-backdrop"><div class="modal" id="modal"></div></div>
+    <div class="start-note" id="start-note"><span>◌</span> O vento traz um sinal de dentro das ruínas. O resto do mundo espera além da névoa.</div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
